@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>This is the title of the webpage!</title>
+  </head>
+  <body>
+    <p>
+      This is an example paragraph. Anything in the <strong>body</strong> tag
+      will appear on the page, just like this <strong>p</strong> tag and its
+      contents.
+    </p>
+    <button type="button" onclick="">
+      Click me to display Date and Time.
+    </button>
+  </body>
+
+  <script>
+    let blob = new Blob(
+      [
+        `
+    BEGIN:VCALENDAR
+PRODID:Calendar
+VERSION:2.0
+BEGIN:VEVENT
+UID:0@default
+CLASS:PUBLIC
+DESCRIPTION:Worldwide
+DTSTAMP;VALUE=DATE-TIME:20190410T222727
+DTSTART;VALUE=DATE-TIME:20191008
+DTEND;VALUE=DATE-TIME:20191011
+LOCATION:Worldwide
+SUMMARY;LANGUAGE=en-us:Cigna Travel Insurance 
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+`
+      ],
+      { type: "text/calendar" }
+    );
+    let link = document.createElement("a");
+    link.href = window.URL.createObjectURL(blob);
+    link.download = "Reminders.ics";
+    link.click();
+  </script>
+</html>
