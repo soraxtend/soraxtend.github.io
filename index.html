@@ -9,15 +9,16 @@
       will appear on the page, just like this <strong>p</strong> tag and its
       contents.
     </p>
-    <button type="button" onclick="">
-      Click me to display Date and Time.
+    <button type="button" onclick="downloadCal()">
+      Click me2.0
     </button>
   </body>
 
   <script>
-    let blob = new Blob(
-      [
-        `
+    function downloadCal() {
+      let blob = new Blob(
+        [
+          `
     BEGIN:VCALENDAR
 PRODID:Calendar
 VERSION:2.0
@@ -34,12 +35,13 @@ TRANSP:TRANSPARENT
 END:VEVENT
 END:VCALENDAR
 `
-      ],
-      { type: "text/calendar" }
-    );
-    let link = document.createElement("a");
-    link.href = window.URL.createObjectURL(blob);
-    link.download = "Reminders.ics";
-    link.click();
+        ],
+        { type: "text/calendar" }
+      );
+      let link = document.createElement("a");
+      link.href = window.URL.createObjectURL(blob);
+      link.download = "Reminders.ics";
+      link.click();
+    }
   </script>
 </html>
