@@ -18,7 +18,7 @@
     function downloadCal() {
       let blob = new Blob(
         [
-          `
+          escape(`
     BEGIN:VCALENDAR
 PRODID:Calendar
 VERSION:2.0
@@ -34,7 +34,7 @@ SUMMARY;LANGUAGE=en-us:Cigna Travel Insurance
 TRANSP:TRANSPARENT
 END:VEVENT
 END:VCALENDAR
-`
+`)
         ],
         { type: "text/calendar" }
       );
