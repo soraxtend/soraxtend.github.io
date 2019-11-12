@@ -15,31 +15,10 @@
   </body>
 
   <script>
-    function downloadCal() {
-      let blob = new Blob(
-        [
-          `BEGIN:VCALENDAR
-PRODID:Calendar
-VERSION:2.0
-BEGIN:VEVENT
-UID:0@defaultCigna
-CLASS:PUBLIC
-DESCRIPTION:Japan2
-DTSTAMP;VALUE=DATE-TIME:20190411T193232
-DTSTART;VALUE=DATE-TIME:20190922
-DTEND;VALUE=DATE-TIME:20190927
-LOCATION:Japan
-SUMMARY;LANGUAGE=en-us:Cigna Travel Insurance 2
-TRANSP:TRANSPARENT
-END:VEVENT
-END:VCALENDAR`
-        ],
-        { type: "text/calendar" }
+    async function downloadCal() {
+      const response = await fetch(
+        "https://raw.githubusercontent.com/soraxtend/soraxtend.github.io/master/courses-all.json"
       );
-      let link = document.createElement("a");
-      link.href = window.URL.createObjectURL(blob);
-      link.download = "Reminders.ics";
-      link.click();
     }
   </script>
 </html>
